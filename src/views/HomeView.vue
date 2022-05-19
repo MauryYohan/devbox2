@@ -40,7 +40,7 @@ export default {
       checkbox: false,
       checkbox_folders : false,
       defaultNewResource: {name:"", url:"", folder_id:0},
-      newResource: {name:"", url:"", folder_id:0},
+      newResource: {name:"", url:"", folder_id:[]},
       // Our data
       resources: [
         {
@@ -130,13 +130,17 @@ export default {
     }
   },
   created() {
-    this.resources = localStorage.getItem('resource') ? JSON.parse(localStorage.getItem('resource')) : this.resources;
-    this.folders = localStorage.getItem('folder') ? JSON.parse(localStorage.getItem('folder')) : this.folders;
+    this.resources = localStorage.getItem('resources') ? JSON.parse(localStorage.getItem('resources')) : this.resources;
+    this.folders = localStorage.getItem('folders') ? JSON.parse(localStorage.getItem('folders')) : this.folders;
+  },
+  mounted() {
+    console.log(this.resources)
+    console.log(this.folders)
   },
   methods: {
     addPersister: function() {
-      window.localStorage.setItem("resource", JSON.stringify(this.resources));
-      window.localStorage.setItem("folder", JSON.stringify(this.folders));
+      window.localStorage.setItem("resources", JSON.stringify(this.resources));
+      window.localStorage.setItem("folders", JSON.stringify(this.folders));
     },
     merge: function(...arr){
       return arr.reduce((acc, val) => {
