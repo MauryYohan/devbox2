@@ -87,6 +87,10 @@ export default {
 
 background:black;
   border-radius:40px;
+  margin-top: -80px;
+
+  position: absolute;
+  top: 370px;
 
 }
 .folder-list a {
@@ -104,11 +108,17 @@ background:black;
   padding-top: 2%;
   width: 50%;
   margin:auto;
+  /*margin-top: -60px;*/
+  margin: 160px auto;
+  /* margin-top: -60px; */
 }
 
 .items{
   width: 50%;
   border: 1px solid white;
+  margin: -40px 20px;
+  padding:1rem;
+
 }
 
 .items li{
@@ -122,6 +132,12 @@ background:black;
 }
 .product{
   color: white;
+  position:absolute;
+  right:0;
+}
+#addResourceForm > div{
+  position:absolute ;
+  right:0;
 }
 
 .hero{

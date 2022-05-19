@@ -8,8 +8,11 @@
 <script></script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
 body{
   background-color:#181920;
+  font-family: 'Poppins', sans-serif;
+
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -17,6 +20,7 @@ body{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
 }
 
 nav {
