@@ -26,33 +26,7 @@
     </div>
   </article>
 </div>
-    <!-- Cette table se met a jour lors d'une insertion via formulaire, les autres non... -->
 
-<!--    -->
-<!--    <div class="resources-table">-->
-<!--      <table class="table">-->
-<!--        <thead>-->
-<!--          <tr>-->
-<!--            <th scope="col">ID</th>-->
-<!--            <th scope="col">Nom</th>-->
-<!--            <th scope="col">Url</th>-->
-<!--            <th scope="col">Epinglée?</th>-->
-<!--            <th scope="col">Folder</th>-->
-<!--          </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--          <tr :key= resource.id-->
-<!--              v-for="resource in resources"-->
-<!--              class="single-resource">-->
-<!--            <td >{{ resource.id }}</td>-->
-<!--            <td >{{ resource.name }}</td>-->
-<!--            <td><a :href="resource.url">{{resource.url}}</a></td>-->
-<!--            <td>{{ resource.pinned }}</td>-->
-<!--            <td>{{ resource.folder_id }}</td>-->
-<!--          </tr>-->
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </div>-->
   </div>
 </template>
 
@@ -60,6 +34,7 @@
 export default {
   name: "MyResource",
   props: { resources: Array, folders: Array, filters: { pinned: true } }
+
 }
 </script>
 
