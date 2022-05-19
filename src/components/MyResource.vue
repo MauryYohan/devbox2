@@ -11,7 +11,7 @@
 
 <div class="my-resources">
   <article class="items hero">
-    <h2>Ressources Epinglés</h2>
+    <h2>Ressources Epinglées</h2>
     <div class="resources-list" :key=resource.id v-for="resource in resources">
       <p><a :href="resource.url" target="blank" v-if="resource.pinned">{{resource.name}}</a></p>
     </div>
@@ -138,6 +138,7 @@ background:black;
 #addResourceForm > div{
   position:absolute ;
   right:0;
+
 }
 
 .hero{
@@ -160,5 +161,9 @@ background:black;
 
 .hero{
   border: black;
+}
+.items a:hover{
+  color: lightblue;
+  text-decoration:underline;
 }
 </style>

@@ -32,9 +32,19 @@
      <!--      <div class="letter">M</div>-->
      <!--    </li>-->
    </ul>
-
-
    <!--  LETTERS-->
+
+
+  <form>
+        <img alt="Vue logo" src="../assets/plus.svg" v-on:click="showFormInput = !showFormInput">
+         <p class="touch-me">Creer un nouveau dossier !</p>
+        <div class="product" v-show="showFormInput" style="display:flex; justify-content:center;margin:auto;padding-bottom:20px;">
+             <label><b>Nom de la ressource</b></label>
+             <input type="text" id="name" name="name" v-model="newFolder.name">
+          <input type="button" value="Ajouter" @click="addFolder()" class="product-add-cart">
+         </div>
+    </form>
+
 <!--   <video id="background-video" autoplay loop muted>-->
 
 <!--     <source src="@/assets/coding.mp4" type="video/mp4">-->
@@ -43,10 +53,11 @@
 
   <video src="@/assets/coding.mp4" autoplay="" muted="" loop="" playsinline=""></video>
   <!-- Formulaire d'ajout de ressources -->
+   <div>
   <form id="addResourceForm">
 
     <img alt="Vue logo" src="../assets/plus.svg" v-on:click="showForm = !showForm">
-    <p class="touch-me">Touch me !</p>
+    <p class="touch-me">Ajouter une ressource !</p>
     <div class="product" v-show="showForm">
       <label><b>Nom de la ressource</b></label>
       <input type="text" id="name" name="name" v-model="newResource.name">
@@ -67,6 +78,7 @@
       <input type="button" value="Ajouter" @click="addResource()" class="product-add-cart">
     </div>
   </form>
+   </div>
   <!--Traitement des ressources -->
   <MyResource :resources="resources" :folders="folders"></MyResource>
  </div>
@@ -83,10 +95,11 @@ export default {
     return {
       // Form control
       showForm: false,
+      showFormInput: false,
       checkbox: false,
-      checkbox_folders : false,
-      defaultNewResource: {name:"", url:"", folder_id:0},
-      newResource: {name:"", url:"", folder_id:[]},
+      checkbox_folders: false,
+      defaultNewResource: {name: "", url: "", folder_id: 0},
+      newResource: {name: "", url: "", folder_id: []},
       // Our data
       resources: [
         {
@@ -145,7 +158,7 @@ export default {
           pinned: false,
           folder_id: 3
         },
-          // Ajout ici, nouvelle ressource
+        // Ajout ici, nouvelle ressource
       ],
       folders: [
         {
@@ -172,7 +185,10 @@ export default {
           color: "grey",
           icon: "https://picsum.photos/51"
         }
-      ]
+      ],
+      newFolder: {
+        name: ""
+      }
     }
   },
   created() {
@@ -184,22 +200,29 @@ export default {
     console.log(this.folders)
   },
   methods: {
-    addPersister: function() {
+    addPersister: function () {
       window.localStorage.setItem("resources", JSON.stringify(this.resources));
       window.localStorage.setItem("folders", JSON.stringify(this.folders));
     },
-    merge: function(...arr){
+    merge: function (...arr) {
       return arr.reduce((acc, val) => {
-        return { ...acc, ...val  };
-        }, {});
+        return {...acc, ...val};
+      }, {});
     },
-    addResource: function() {
+    addResource: function () {
       this.resources.push(this.merge({id: this.resources.length + 1}, {pinned: this.checkbox}, this.newResource))
       this.newResource = this.defaultNewResource
       this.addPersister()
+    },
+    addFolder: function () {
+      this.folders.name.push(this.newFolder.name)
+      console.log(this.addFolder)
     }
   }
-}
+
+
+  }
+
 </script>
 
 <style scoped>
@@ -248,7 +271,7 @@ h2 { font-size: 3rem; }
   width: 100%;
   flex-direction: column;
   align-items: flex-end;
-  position:absolute;
+  /*position:absolute;*/
 
 }
 /*@media screen and (min-width:0px){*/
