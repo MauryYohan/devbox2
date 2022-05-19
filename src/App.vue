@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Accueil</router-link>
+    <router-link to="/">Home</router-link>
   </nav>
   <router-view/>
 </template>
@@ -8,6 +8,9 @@
 <script></script>
 
 <style>
+body{
+  background-color:#181920;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +20,11 @@
 }
 
 nav {
-  padding: 30px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  width: 100%;
+
+
 }
 
 nav a {

@@ -1,7 +1,16 @@
 <template>
+ <div class="container">
+<!--   <video id="background-video" autoplay loop muted>-->
+
+<!--     <source src="@/assets/coding.mp4" type="video/mp4">-->
+
+<!--   </video>-->
+
+  <video src="@/assets/coding.mp4" autoplay="" muted="" loop="" playsinline=""></video>
   <!-- Formulaire d'ajout de ressources -->
   <form id="addResourceForm">
-    <img alt="Vue logo" src="../assets/plus.svg" v-on:click="showForm = !showForm">Touch me !
+
+    <img alt="Vue logo" src="../assets/plus.svg" v-on:click="showForm = !showForm"><p>Touch me !</p>
     <div class="product" v-show="showForm">
       <label><b>Nom de la ressource</b></label>
       <input type="text" id="name" name="name" v-model="newResource.name">
@@ -24,6 +33,7 @@
   </form>
   <!--Traitement des ressources -->
   <MyResource :resources="resources" :folders="folders"></MyResource>
+ </div>
 </template>
 
 <script>
@@ -155,3 +165,76 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+#background-video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+h1, h2, #btnVideo{
+
+  color: white;
+
+  font-family: Trebuchet MS;
+
+  font-weight: bold;
+
+  text-align: center;
+
+}
+
+h1 {
+  font-size: 6rem;
+  margin-top: 30vh;
+}
+
+h2 { font-size: 3rem; }
+
+#btnVideo{
+  font-size: 1.5rem;
+  background: 0;
+  border: 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+#addResourceForm{
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+  position:absolute;
+  align-items: end;
+}
+/*@media screen and (min-width:0px){*/
+/*  .container{*/
+/*    width:fit-content;*/
+/*  }*/
+
+/*}*/
+#addResourceForm > img{
+  /*width: 20%;*/
+  width:fit-content;
+  justify-content: flex-end;
+  display: flex;
+  /*margin: auto;*/
+
+
+}
+
+.product{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 12%;
+}
+</style>
