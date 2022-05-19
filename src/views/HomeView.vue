@@ -186,9 +186,8 @@ export default {
           icon: "https://picsum.photos/51"
         }
       ],
-      newFolder: {
-        name: ""
-      }
+      defaultNewFolder: {name: "", color: "grey", icon: "https://picsum.photos/52"},
+      newFolder: { name: "", color: "grey", icon: "https://picsum.photos/52" }
     }
   },
   created() {
@@ -215,13 +214,13 @@ export default {
       this.addPersister()
     },
     addFolder: function () {
-      this.folders.name.push(this.newFolder.name)
-      console.log(this.addFolder)
+      this.folders.push(this.merge({id: this.folders.length + 1}, this.newFolder))
+      this.newFolder = this.defaultNewFolder
+      this.addPersister()
+      console.log(this.folders)
     }
   }
-
-
-  }
+}
 
 </script>
 

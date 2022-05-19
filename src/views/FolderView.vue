@@ -1,17 +1,6 @@
 <template>
-  <div>
-  <MyFolder :folders="folders" :resources="resources"></MyFolder>
-  <div :key="folder.id" v-for="folder in folders">
-<!--    <article v-if="folder.id===folder.name">-->
-<!--      {{folder.name}}-->
-<!--    </article>-->
-
-    <div :key="i" v-for="(resource,i) in resources" :to="{name:'folder', params:{name:folder.name}}">
-      <article v-if="resource.folder_id === resource.id">
-        {{resource.name}}
-      </article>
-    </div>
-</div>
+  <div class="container">
+    <MyFolder :folders="folders" :resources="resources"></MyFolder>
   </div>
 </template>
 
@@ -33,9 +22,14 @@ export default {
     this.folders = localStorage.getItem('folders') ? JSON.parse(localStorage.getItem('folders')) : this.folders;
   },
   methods: {
+    deleteResource: function(_resource){
+      this.resources = this.resources.splice(this.resources.indexOf(_resource), 1);
+      window.localStorage.setItem("folders", JSON.stringify(this.folders));
+    },
     folderItems: function (){
       // if (resource)
-    }
+    },
+    //
   }
 }
 </script>
