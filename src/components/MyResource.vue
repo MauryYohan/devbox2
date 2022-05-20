@@ -1,15 +1,25 @@
 <template>
   <div id="my-resource">
-    <div class="folder-main">
-    <h2>Mes Dossiers</h2>
-    <div class="folder-list">
-      <router-link :key=i v-for="(folder,i) in folders" :to="{name:'folder', params:{name:folder.name}}">
-        <p><a :class="folder.color">- {{ folder.name }}</a></p>
-      </router-link>
-    </div>
-    </div>
+<!--    <div class="folder-main">-->
+<!--    <h2>Mes Dossiers</h2>-->
+<!--    <div class="folder-list">-->
+<!--      <router-link :key=i v-for="(folder,i) in folders" :to="{name:'folder', params:{name:folder.name}}">-->
+<!--        <p><a :class="folder.color">- {{ folder.name }}</a></p>-->
+<!--      </router-link>-->
+<!--    </div>-->
+<!--    </div>-->
 
 <div class="my-resources">
+  <article>
+    <div class=" items">
+      <h2>Mes Dossiers</h2>
+      <div class="folder-list">
+        <router-link :key=i v-for="(folder,i) in folders" :to="{name:'folder', params:{name:folder.name}}">
+          <p><a :class="folder.color">- {{ folder.name }}</a></p>
+        </router-link>
+      </div>
+    </div>
+  </article>
   <article class="items hero">
     <h2>Ressources Epinglées</h2>
     <div class="resources-list" :key=resource.id v-for="resource in resources">
@@ -69,30 +79,53 @@ background:black;
 
 }
 .folder-list a {
-  text-align: start;
-
+  text-align: center;
+  max-width: 30vw;
 }
+  #my-resource > div > article:nth-child(1) > div > div{
+    width:12vw;
+    margin-right:90px;
+    text-align: center;
+    margin: auto;
+  }
+
+
+
+
+
+
 .folder-list{
   margin:auto;
   padding-bottom:20px;
+
 }
 
 .my-resources{
-  display: flex;
-  justify-content: center;
-  padding-top: 2%;
-  width: 50%;
-  margin:auto;
-  /*margin-top: -60px;*/
-  margin: 160px auto;
-  /* margin-top: -60px; */
+  /*display: flex;*/
+  /*justify-content: space-evenly;*/
+  /*padding-top: 2%;*/
+  /*width: 100%;*/
+  /*margin:auto;*/
+  /*margin: 70px auto;*/
+
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:20px;
+  margin-top: 60px;
+  width: 100%;
+
+  /*align-items: center;*/
+
 }
 
 .items{
-  width: 50%;
+  width:88%;
   border: 1px solid white;
+  border-radius:10px;
   margin: -40px 20px;
   padding:1rem;
+  max-width: fit-content;
+  max-width: 30vw;
 
 }
 
@@ -118,16 +151,22 @@ background:black;
 
 .hero{
   background:darkgoldenrod;
+  border-radius: 10px;
+
+
+
 }
 .items h2 {
   text-decoration:underline;
 }
-.hero{
-  border-radius: 50px;
-}
+
 
 .folder-main h2{
   color:white;
+  text-decoration:underline;
+}
+.folder-list a:hover{
+  color: lightblue;
   text-decoration:underline;
 }
 .items h2{
