@@ -39,4 +39,10 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+/*@media screen and (max-width:1080px){*/
+/*  .my-resources{*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*  }*/
+/*}*/
 </style>
