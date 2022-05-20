@@ -1,7 +1,6 @@
 <template>
  <div class="container">
    <!--  LETTERS-->
-
    <ul class="my-title-main">
      <li>
        <input type="checkbox" />
@@ -33,8 +32,6 @@
      <!--    </li>-->
    </ul>
    <!--  LETTERS-->
-
-
   <form>
         <img alt="Vue logo" src="../assets/plus.svg" v-on:click="showFormInput = !showFormInput">
          <p class="touch-me" v-on:click="showFormInput = !showFormInput">Creer un nouveau dossier !</p>
@@ -46,9 +43,7 @@
     </form>
 
 <!--   <video id="background-video" autoplay loop muted>-->
-
 <!--     <source src="@/assets/coding.mp4" type="video/mp4">-->
-
 <!--   </video>-->
 
   <video src="@/assets/coding.mp4" autoplay="" muted="" loop="" playsinline=""></video>
@@ -371,7 +366,7 @@ input[type="checkbox"] {
   background: rgba(255, 255, 255, 0.05);
 } */
 
-input[type="checkbox"]:checked ~ div {
+input[type="checkbox"] ~ div {
   box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
   inset 4px 4px 6px rgba(0, 0, 0, 0.2);
   color: yellow;

@@ -107,7 +107,7 @@ input[type="checkbox"] {
   background: rgba(255, 255, 255, 0.05);
 } */
 
-input[type="checkbox"]:checked ~ div {
+input[type="checkbox"] ~ div {
   box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
   inset 4px 4px 6px rgba(0, 0, 0, 0.2);
   color: yellow;

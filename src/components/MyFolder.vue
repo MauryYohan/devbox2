@@ -1,5 +1,6 @@
 <template>
 <TitlePages />
+  <h2>{{$route.params.name}}</h2>
   <div class="resources-table" :key=folder.id v-for="folder in folders">
     <div v-if="folder.name===$route.params.name">
       <table class="table">
@@ -70,5 +71,11 @@ th,th,tr,a{
 }
 .table tbody tr, .table thead tr{
   margin:auto;
+}
+
+h2{
+  color:white;
+  text-decoration:underline;
+  text-decoration:underline;
 }
 </style>
