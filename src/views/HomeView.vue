@@ -37,7 +37,7 @@
 
   <form>
         <img alt="Vue logo" src="../assets/plus.svg" v-on:click="showFormInput = !showFormInput">
-         <p class="touch-me">Creer un nouveau dossier !</p>
+         <p class="touch-me" v-on:click="showFormInput = !showFormInput">Creer un nouveau dossier !</p>
         <div class="product" v-show="showFormInput" style="display:flex; justify-content:center;margin:auto;padding-bottom:20px;">
              <label><b>Nom de la ressource</b></label>
              <input type="text" id="name" name="name" v-model="newFolder.name">
@@ -57,7 +57,7 @@
   <form id="addResourceForm">
 
     <img alt="Vue logo" src="../assets/plus.svg" v-on:click="showForm = !showForm">
-    <p class="touch-me">Ajouter une ressource !</p>
+    <p class="touch-me" v-on:click="showForm = !showForm">Ajouter une ressource !</p>
     <div class="product" v-show="showForm">
       <label><b>Nom de la ressource</b></label>
       <input type="text" id="name" name="name" v-model="newResource.name">
@@ -66,7 +66,7 @@
       <label><b>Souhaitez vous l'épingler sur la page d'accueil ?</b> </label>
       <!-- Probleme au niveau de la checkbox et de l'image... -->
       <div>
-        <label><img v-if ="checkbox" src="@/assets/pinned.png" /><img v-if ="!checkbox" src="@/assets/pin.png" /></label>
+        <label><img v-if ="checkbox" src="@/assets/pinned.png" /><img v-if ="!checkbox" src="@/assets/pin.png"/></label>
         <input type="checkbox" class="text check-form-plus" @click="checkbox = !checkbox">
       </div>
       <div>{{folders.name}}</div>
@@ -294,6 +294,14 @@ h2 { font-size: 3rem; }
   justify-content: center;
   flex-direction: column;
   max-width: 12%;
+  background:white;
+  padding: 1rem;
+  background:repeating-linear-gradient(45deg, black, transparent 100px);
+  color: white;
+}
+#addResourceForm > div > div:nth-child(6) > label > img{
+  background: white;
+  border-radius: 1rem;
 }
 
 
@@ -402,7 +410,12 @@ input[type="checkbox"]:checked ~ div {
   font-family: 'Poppins', sans-serif;
 }
 .touch-me{
-  color:white
+  color:white;
+  cursor:wait;
+}
+.touch-me:hover{
+  color:darkgoldenrod;
+  cursor:wait;
 }
 #addResourceForm > img{
   background:white;
@@ -410,5 +423,27 @@ input[type="checkbox"]:checked ~ div {
 }
 #addResourceForm{
   align-items:center;
+}
+#app > div > form > img{
+  background: white;
+  border-radius: 20px;
+}
+#app > div > form > img:hover {
+background: darkgoldenrod;
+  cursor:wait;
+}
+#addResourceForm > img:hover{
+  background: darkgoldenrod;
+  cursor:wait;
+}
+video{
+  border-radius: 80px;
+}
+
+@media screen and (max-width:1080px){
+  .my-resources{
+    display:grid;
+    grid-template-raw: 2fr;
+  }
 }
 </style>
